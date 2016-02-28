@@ -1,0 +1,57 @@
+.footer {
+	background: $footer-section;
+	padding: 20px;
+	margin-bottom: 20px;
+
+	.footer--container {
+		display: flex;
+		justify-content: space-between;
+
+		p {
+			margin: 0;
+		}
+
+		div {
+			display: flex;
+			align-items: center;
+
+			&.footer--github {
+				img {
+					height: 25px;
+					margin-right: 10px;
+				}
+
+				a {
+					color: $about-section;
+					transition: color 0.3s;
+
+					&:hover {
+						color: darken($about-section, 20);
+					}
+				}
+			}
+		}
+
+		@media (max-width: 625px) {
+			flex-direction: column;
+
+			div {
+				justify-content: center;
+
+				p {
+					text-align: center;
+				}
+
+				&.footer--github {
+					margin-bottom: 20px;
+					flex-direction: column;
+
+					img {
+						margin-bottom: 10px;
+						margin-right: 0;
+					}
+				}
+			}
+		}
+	}
+}

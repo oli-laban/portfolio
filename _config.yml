@@ -1,0 +1,7 @@
+name: Oli Laban
+markdown: redcarpet
+permalink: /post/:title
+highlighter: pygments # or rouge or null
+exclude: ["node_modules", "gulpfile.js", "package.json"]
+url: http://bluefont.design
+twitter_username: oli.laban

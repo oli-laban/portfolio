@@ -1,0 +1,13 @@
+#page-wrap {
+	display: flex;
+	min-height: 100vh;
+
+	@media (max-width: 767px) {
+		display: block;
+	}
+}
+#content {
+	flex-grow: 1;
+	overflow: hidden;
+}
+

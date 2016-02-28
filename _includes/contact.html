@@ -1,0 +1,51 @@
+<section class="contact slide-up" id="contact">
+	<div class="contact--container">
+
+		<h3>Don't hesitate to get in touch!</h3>
+
+		<p class="form--error-message"></p>
+
+		<div class="contact--content">
+			
+			<form action="contact.php" class="contact--form" id="contact-form" method="post">
+				<div class="form-input">
+					<input type="text" name="input-name" id="input-name" class="form-input--field">
+					<label for="input-name" class="form-input--label">
+						<span class="form-input--label-content" data-content="Name">Name</span>
+					</label>
+				</div>
+				<div class="form-input">
+					<input type="email" name="input-email" id="input-email" class="form-input--field">
+					<label for="input-email" class="form-input--label">
+						<span class="form-input--label-content" data-content="Email">Email</span>
+					</label>
+				</div>
+				<div class="form-input">
+					<textarea type="text" name="input-message" id="input-message" class="form-input--field" rows="8"></textarea>
+					<label for="input-message" class="form-input--label">
+						<span class="form-input--label-content" data-content="Message">Message (min 20 characters)</span>
+					</label>
+				</div>
+				<div class="whinnie">
+					<label for="input-whinnie">Please do not fill out this field</label>
+					<input type="text" name="input-whinnie" id="input-whinnie" placeholder="Please do not fill out this field">
+				</div>
+				<button type="submit" name="submit" class="button form-submit" hover-text="Send">Send</button>
+			</form>
+			
+			
+
+			<div class="message-sent">
+				<p>Thanks!</p>
+				<p>Your message has been sent. <br> I'll get back to you as soon as I can.</p>
+			</div>	
+
+		</div>
+
+		<div class="contact--email">
+				<p class="email-at">or email me at</p>
+				<a href="mailto:contact@olilaban.com" class="button button--email" hover-text="oli@bluefont.design">oli@bluefont.design</a>
+			</div>
+
+	</div>
+</section>

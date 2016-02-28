@@ -1,0 +1,41 @@
+body {
+	background: #fff;
+	height: 100%;
+}
+div {
+	box-sizing: border-box;
+}
+a, p, li, button {
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	letter-spacing: 1px;
+}
+h1 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+.mono, h2 {
+	font-family: 'Source Code Pro';
+	font-weight: 400;
+}
+@media (min-width: 768px) {
+	.come-in {
+	  transform: translateX(150px);
+	  opacity: 0;
+	  animation: come-in 0.8s ease forwards;
+	}
+	.come-in:nth-child(odd) {
+	  animation-duration: 0.6s; /* So they look staggered */
+	}
+	.already-visible {
+	  transform: translateX(0);
+	  opacity: 1;
+	  animation: none;
+	}
+
+	@keyframes come-in {
+	  to { transform: translateX(0);
+	  		opacity: 1; }
+	}
+}

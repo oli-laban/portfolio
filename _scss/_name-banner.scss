@@ -1,0 +1,56 @@
+.name-banner {
+	background: $near-white;
+	height: 165px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	z-index: -1;
+	opacity: 1;
+
+	@media (max-width: 767px) {
+		padding-top: 50px;
+	}
+
+	h1 {
+		width: 100%;
+		margin: 0;
+		font-size: 70px;
+		text-align: center;
+		//animation: 1s banner-in ease-out;
+
+		span {
+			color: #666;
+			margin-left: -7px;
+		}
+
+		@media (max-width: 447px) {
+			font-size: 58px;
+		}
+	}
+	p {
+		letter-spacing: 0;
+		font-size: 20px;
+		margin-top: 0;
+		text-align: center;
+		//animation: 1s banner-in ease-out;
+
+		span {
+			@media (max-width: 570px) {
+				display: none;
+			}
+		}
+	}
+}
+
+@keyframes banner-in {
+	from {
+		opacity: 0;
+		transform: translateX(150%);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}

@@ -1,0 +1,43 @@
+---
+layout: post
+title:  "Firefox Doesn't Like the <em>padding-bottom</em> Hack with Flexbox"
+date:   2016-02-04 13:08:26
+image: "firefox-doesnt-like-the-padding-bottom-hack-with-flexbox.jpg"
+snippet: What is the padding-bottom hack? If at some point you have needed a responsive square with CSS, you've probably come across it at some point. You may or may not have seen it referred to as the 'padding-bottom hack but I couldn't think of another name...
+style: |
+  .post--header {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #b7c4cf;
+  }
+---
+
+<h2>What is the padding-bottom hack?</h2>
+<p>If at some point you have needed a responsive square with CSS, you've probably come across it at some point. You may or may not have seen it referred to as the '<em>padding-bottom hack</em>' but I couldn't think of another name.</p>
+<p>In CSS, horizontal <code>padding</code>, when set with a percentage, is based off the width of the parent. So you may assume that vertical <code>padding</code> is based off the height, but this is incorrect. Vertical padding is also based off the width. This can be slightly annoying in some situations, but it's possible to use it to our advantage. Creating a responsive square in CSS isn't usually the most simple task, but due to this quirk, it can be simple.</p>
+<p>By setting the height of an element to 0, we can use the <code>padding-bottom</code> to set the height like so:</p>
+<pre><code>.square {
+	width: 100%;
+	height: 0;
+	padding-bottom: 100%;
+}
+</code></pre>
+<p>Here's a Pen of this in action:</p>
+<p data-height="290" data-theme-id="0" data-slug-hash="GZRoXQ" data-default-tab="result" data-user="olilaban" class='codepen'>See the Pen <a href='http://codepen.io/olilaban/pen/GZRoXQ/'>padding-bottom hack</a> by Oli Laban (<a href='http://codepen.io/olilaban'>@olilaban</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+<p>As you can see, the square is set entirely in percentages, making it completely responsive. Also note that it isn't limited to squares. For example, setting <code>width: 100%</code> and <code>padding-bottom: 56.25%</code> would give you a 16:9 aspect ratio. Any contents can then be absolutely positioned within the element.</p>
+
+<h2>Adding flexbox to the equation...</h2>
+<p>It's getting to the point where flexbox is very widely supported, hence why I built this site with it. I was coding the portfolio section, when I decided to use the 'padding-bottom hack' to create a responsive grid of squares, centered horizontally and vertically with flexbox. It wasn't till I'd finished the entire section that I decided to do a cross-browser check (a mistake on my part!). Needless to say, I was disappointed when I launched the site in Firefox.</p>
+<p>Strangely, when using flexbox, Firefox calculates the vertical <code>padding</code> from the <strong>height</strong> of the object. While this allows you to do some things that would usually require Javascript, it voids the hack in question.</p>
+<p>Here's a Pen of creating a responsive square that is 30% of the width of the parent and is centered using flexbox (you may have to scroll the Pen depending on your screen size):</p>
+<p data-height="290" data-theme-id="0" data-slug-hash="yOLOwM" data-default-tab="result" data-user="olilaban" class='codepen'>See the Pen <a href='http://codepen.io/olilaban/pen/yOLOwM/'>padding-bottom hack w/ flexbox</a> by Oli Laban (<a href='http://codepen.io/olilaban'>@olilaban</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<p>If you're reading this in a browser other than Firefox, you should be able to see the square. If you're using Firefox, you'll see... <strong>nothing!</strong> Why's that? Like I said before, when using flexbox, padding is calculated using the height of the parent. In that example the height of the parent (<code>.container</code>) isn't set. <em>30% of 0 == 0</em>!</p>
+<p>Here's the same example with a height of 200px on <code>.container</code>:</p>
+<p data-height="268" data-theme-id="0" data-slug-hash="bpGebE" data-default-tab="result" data-user="olilaban" class='codepen'>See the Pen <a href='http://codepen.io/olilaban/pen/bpGebE/'>padding-bottom hack w/ flexbox-2</a> by Oli Laban (<a href='http://codepen.io/olilaban'>@olilaban</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<p>Again, if you're using a browser other than Firefox, that should display just fine. If you are using Firefox, you'll see the element, but it won't be square (unless your screen width is such that 30% of <code>.container</code> is 60px). This displays the problem clearly.</p>
+
+<h2>The fix!</h2>
+<p>Wait for it... <strong>there isn't one!</strong></p>
+<p>That's right. Unfortunately, if you want to use this hack, the parent can not be a flex element. There is a silver lining, in that the parent <em>can</em> be a flex child. So if you are using flexbox for your layout, you will have to wrap the element in a <code>&lt;div&gt;</code> then position it normally. In the case of my portfolio, I just floated the grid elements rather than using flexbox. So it isn't the end of the world, but it can be annoying if you don't know about it (I speak from experience!).</p>

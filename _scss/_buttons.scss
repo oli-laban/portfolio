@@ -1,0 +1,31 @@
+.button {
+	padding: 10px 0;
+	position: relative;
+	border: none;
+
+	&:before {
+		content: attr(hover-text);
+		position: absolute;
+		z-index: 0;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		padding: 10px 0;
+		background: #fff;
+		color: #000;
+		transform: scaleY(0);
+		transform-origin: 50% 0;
+		transition-property: transform;
+		transition-duration: 0.2s;
+		transition-timing-function: ease-out;
+	}
+
+	&:hover, &:focus, &:active {
+		outline: none;
+
+		&:before {
+			transform: scaleY(1);
+		}
+	}
+}

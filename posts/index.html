@@ -1,0 +1,30 @@
+---
+layout: default
+type: "posts"
+---
+
+<div class="posts--wrapper">
+
+	<nav class="post--menu post--menu--down">
+		<div class="post--menu--contents">
+			<a href="../"><img src="../img/logo.svg" alt="Logo"></a>
+			<a href="../">Home</a>
+		</div>
+	</nav>
+
+	<div class="posts--content">
+		
+		{% assign postCount = '0' %}
+		{% for post in site.posts %}
+			{% capture postCount %}{{ postCount | plus: '1' }}{% endcapture %}
+			<article class="posts--post">
+				<a href="{{ post.url }}.html">
+				<p class="posts--post-title"><span>{{ postCount }}.</span> {{ post.title }}</p>
+				<p class="posts--post-date">{{ post.date | date_to_long_string }}</p>
+				</a>
+			</article>
+		{% endfor %}
+
+	</div>
+	
+</div>

@@ -1,0 +1,34 @@
+.skills {
+	height: 500px;
+	background-image: 
+		linear-gradient(
+			rgba($skills-section, 0.92),
+			rgba($skills-section, 0.92)
+		),
+		url('../img/laptop-bg.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+
+	display: flex;
+	justify-content: center;
+
+	.skills--container {
+		width: 80%;
+		padding: 20px;
+
+		display: flex;
+	}
+
+	.skills--coding, .skills--tools {
+		flex: 1;
+		background: rgba(0,0,0,0.2);
+	}
+
+	.skills--coding {
+		margin-right: 10px;
+	}
+	.skills--tools {
+		margin-left: 10px;
+	}
+}

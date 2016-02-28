@@ -1,0 +1,224 @@
+header {
+	width: $header-width;
+	min-width: $header-width;
+	background: $near-white;
+	z-index: 50;
+
+	.header-content {
+		position: fixed;
+		top: 20px;
+		left: 0;
+		bottom: 40px;
+		width: $header-width;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	
+	.logo-wrapper {
+		z-index: 3;
+		height: 130px;
+
+		// @media (max-width: 800px) {
+		// 	height: 100px;
+		// }
+	}
+	.logo {
+		overflow: hidden;
+	    text-indent: 101%;
+	    white-space: nowrap;
+
+	    background-image: url('../img/logo.svg');
+	    background-repeat: no-repeat;
+	    background-position: center;
+	    background-size: contain;
+
+	    height: 100%;
+	    padding: 0;
+	    margin: 0;
+
+	    animation: 1s logo-in;
+	}
+
+	.header-nav {
+		ul {
+			list-style: none;
+			padding: 0;
+
+			li {
+				margin-bottom: 25px;
+
+				display: flex;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+
+				.nav-indicator {
+					width: 25px;
+					position: relative;
+
+					div {
+						position: absolute;
+						top: 0;
+						height: 100%;
+						left: 0;
+						width: 5px;
+
+						transition: 0.3s width;
+					}
+
+					&.nav-indicator--about div {
+						background-color: $about-section;
+					}
+					&.nav-indicator--what-i-do div {
+						background-color: $skills-section;
+					}
+					&.nav-indicator--blog div {
+						background-color: $blog-section;
+					}
+					&.nav-indicator--portfolio div {
+						background-color: #7BF277;
+					}
+					&.nav-indicator--what-i-use div {
+						background-color: #FFA73E;
+					}
+					&.nav-indicator--contact div {
+						background-color: $contact-section;
+					}
+				}
+
+				&:hover .nav-indicator div, .nav-indicator.nav-indicator--active div {
+					width: 25px;
+				}
+
+				a {
+					width: 100%;
+					padding-top: 2px;
+					padding-left: 15px;
+					color: $dark-grey;
+				}
+			}
+		}
+	}
+
+	.nav-toggle {
+		z-index: 3;
+		display: none;
+		width: 40px;
+		height: 50px;
+		margin-right: 30px;
+		align-items: center;
+		cursor: pointer;
+		user-select: none;
+
+		span, span:before, span:after {
+			content: "";
+			height: 2px;
+			width: 100%;
+			background: $dark-grey;
+			display: block;
+			position: relative;
+
+			transition: all 0.3s ease-in-out;
+		}
+
+		span:before {
+			top: 13px;
+		}
+		span:after {
+			top: -15px;
+		}
+
+		&.is-open span {
+			background: #6A9FED;
+		}
+		&.is-open span:before {
+			transform-origin: center;
+			transform: rotate(45deg);
+			top: 0;
+		}
+		&.is-open span:after {
+			transform-origin: center;
+			transform: rotate(-45deg);
+			top: -2px;
+		}
+	}
+}
+
+.nav-mobile {
+	z-index: 20;
+	top: 0;
+	left: 0;
+	width: 100%;
+	position: fixed;
+	width: 100%;
+	background: #fff;
+	padding: 60px 0 10px 0;
+
+	transform: translateY(-100%);
+	transition: all 0.3s ease-in-out;
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+			text-align: center;
+			margin-bottom: 15px;
+			font-size: 1.1em;
+
+			a {
+				color: $dark-grey;
+			}
+		}
+	}
+}
+
+@media (max-width: 767px) {
+
+	header {
+		width: auto;
+		position: relative;
+		background: transparent;
+
+		.header-content {
+			width: 100%;
+			height: auto;
+			//position: relative;
+			top: auto;
+			bottom: auto;
+			left: auto;
+			flex-direction: row;
+			align-items: center;
+			background: #fff;
+			padding: 5px 0;
+		}
+
+		.header-nav, .header-item-spacer {
+			display: none;
+		}
+
+		.logo-wrapper {
+			height: 40px;
+			max-width: 100px;
+		}
+
+		.nav-toggle {
+			display: flex;
+		}
+	}
+
+	.nav-mobile.is-open {
+		//display: block;
+		transform: translateY(0%);
+	}
+
+}
+
+@keyframes logo-in {
+	from {height: 0;}
+	to {height: 100%;}
+}

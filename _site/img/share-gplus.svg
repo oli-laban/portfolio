@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="220px" height="220px" viewBox="0 0 220 220" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>Google Plus</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-1" sketch:type="MSArtboardGroup" transform="translate(-304.000000, -366.000000)">
+            <g id="Google-Plus" sketch:type="MSLayerGroup" transform="translate(303.750000, 366.000000)">
+                <rect id="BG" fill="#DC4E41" sketch:type="MSShapeGroup" x="0.450195312" y="0.700195312" width="219.599609" height="219.599609"></rect>
+                <path d="M135.324457,101.03125 C135.958514,104.407896 136.304857,107.943257 136.304857,111.635529 C136.304857,140.484375 116.92739,161 87.6666667,161 C59.6736952,161 37,138.400889 37,110.5 C37,82.5991107 59.6736952,60 87.6666667,60 C101.347752,60 112.777429,65.0178964 121.550724,73.1613821 L107.266705,87.3969714 L107.266705,87.3645071 C101.94779,82.3141464 95.2033333,79.7267429 87.6666667,79.7267429 C70.9473905,79.7267429 57.3622095,93.8032571 57.3622095,110.469339 C57.3622095,127.132175 70.9473905,141.242596 87.6666667,141.242596 C102.835181,141.242596 113.15779,132.59375 115.282533,120.726971 L87.6666667,120.726971 L87.6666667,101.03125 L135.324457,101.03125 L135.324457,101.03125 Z M173.166667,104.1875 L173.166667,88.40625 L160.5,88.40625 L160.5,104.1875 L144.666667,104.1875 L144.666667,116.8125 L160.5,116.8125 L160.5,132.59375 L173.166667,132.59375 L173.166667,116.8125 L189,116.8125 L189,104.1875 L173.166667,104.1875 L173.166667,104.1875 Z" id="Logo" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,9 +1,15 @@
-Personal Portfolio
-==================
+## Portfolio
 
-## Tools Used So Far
+Tools Used:
 
-* Jekyll
-* SASS
-* jQuery
-* Gulp (w/ browser-sync - gulp-sass - autoprefixer)
+* (Jekyll)
+* (SASS) (SCSS)
+* (Gulp) with (browser-sync), (gulp-sass) & (gulp-autoprefixer)
+
+Some files are excluded, including:
+
+* `contact.php`: Contact form processing.
+* `.htaccess`.
+* Sass caches and maps.
+* `.jekyll-metadata`.
+* System files.

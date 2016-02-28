@@ -19,7 +19,7 @@ type: "posts"
 		{% for post in site.posts %}
 			{% capture postCount %}{{ postCount | plus: '1' }}{% endcapture %}
 			<article class="posts--post">
-				<a href="{{ post.url }}.html">
+				<a href="{{ post.url }}">
 				<p class="posts--post-title"><span>{{ postCount }}.</span> {{ post.title }}</p>
 				<p class="posts--post-date">{{ post.date | date_to_long_string }}</p>
 				</a>

@@ -2,9 +2,9 @@
 
 Tools Used:
 
-* (Jekyll)
-* (SASS) (SCSS)
-* (Gulp) with (browser-sync), (gulp-sass) & (gulp-autoprefixer)
+* [Jekyll](http://jekyllrb.com/)
+* [SASS](http://sass-lang.com/) (SCSS)
+* [Gulp](http://gulpjs.com/) with [browser-sync](https://www.browsersync.io/), [gulp-sass](https://www.npmjs.com/package/gulp-sass) & [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
 
 Some files are excluded, including:
 

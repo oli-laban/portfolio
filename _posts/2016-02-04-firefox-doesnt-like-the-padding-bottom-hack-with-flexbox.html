@@ -14,7 +14,7 @@ style: |
 ---
 
 <h2>What is the padding-bottom hack?</h2>
-<p>If at some point you have needed a responsive square with CSS, you've probably come across it at some point. You may or may not have seen it referred to as the '<em>padding-bottom hack</em>' but I couldn't think of another name.</p>
+<p>If you've ever needed a responsive square with CSS, you've probably come across it at some point. You may or may not have seen it referred to as the '<em>padding-bottom hack</em>' but I couldn't think of another name.</p>
 <p>In CSS, horizontal <code>padding</code>, when set with a percentage, is based off the width of the parent. So you may assume that vertical <code>padding</code> is based off the height, but this is incorrect. Vertical padding is also based off the width. This can be slightly annoying in some situations, but it's possible to use it to our advantage. Creating a responsive square in CSS isn't usually the most simple task, but due to this quirk, it can be simple.</p>
 <p>By setting the height of an element to 0, we can use the <code>padding-bottom</code> to set the height like so:</p>
 <pre><code>.square {

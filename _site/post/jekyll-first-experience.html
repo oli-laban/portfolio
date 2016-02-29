@@ -204,7 +204,7 @@
 
 <h3>YAML Front Matter</h3>
 
-<h4>Default Variables</h4>
+<h4>Front Matter Variables</h4>
 
 <p>Front matter is an important feature of Jekyll and is used on every page except <em>default.html</em>. Front matter is declared in YAML at the very top of a HTML page. As a basic example, my <em>index.html</em> includes this:</p>
 <pre><code>---
@@ -343,7 +343,7 @@ layout: default
 	{% endfor %}
 &lt;/ul&gt;
 </code></pre>
-<p>If you had 4 posts titled <em>Foo</em>, <em>Bar</em>, <em>Baz</em> and <em>Quz</em>, the above code would produce the following:</p>
+<p>If you had 4 posts titled <em>Foo</em>, <em>Bar</em>, <em>Baz</em> and <em>Quz</em>, the above code would produce the following (<code>limit:3</code> breaks the for loop after 3 iterations and would be the same as <code>(for i=0; i&lt;3; i++)</code> in other languages):</p>
 <ul>
 	<li>Foo</li>
 	<li>Bar</li>

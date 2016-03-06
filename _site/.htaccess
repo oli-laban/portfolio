@@ -5,3 +5,6 @@ RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 RewriteCond /%{REQUEST_FILENAME}.php -f
 RewriteRule ^([a-zA-Z0-9_-\s]+)/$ /$1.html
+
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html

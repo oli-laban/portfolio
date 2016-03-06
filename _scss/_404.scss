@@ -1,0 +1,33 @@
+.four04--wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100%;
+
+	.four04--heading {
+		width: 90%;
+		max-width: 600px;
+
+		img {
+			width: 100%;
+		}
+	}
+	.four04--content {
+		width: 90%;
+		text-align: center;
+
+		.four04--go-home {
+			font-size: 22px;
+
+			a {
+				color: $about-section;
+				transition: 0.3s color;
+
+				&:hover {
+					color: darken($about-section, 20)
+				}
+			}
+		}
+	}
+}

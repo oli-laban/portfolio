@@ -84,35 +84,29 @@
 
     <div class="post--wrapper">
 
-	<nav class="post--menu post--menu--down">
-		<div class="post--menu--contents">
-			<a href="../"><img src="../img/logo.svg" alt="Logo"></a>
-			<a href="../">Home</a>
-			<a href="../posts">Posts</a>
-		</div>
-	</nav>
+    <nav class="post--menu post--menu--down">
+        <div class="post--menu--contents">
+            <a href="../"><img src="../img/logo.svg" alt="Logo"></a>
+            <a href="../">Home</a>
+            <a href="../posts">Posts</a>
+        </div>
+    </nav>
 
-	<div class="post--header" style="background-image: url('../img/post-header-img/jekyll-logo-bg.jpg')">
-		<!-- <a href="" class="button">Back to Posts</a> -->
-	</div>
+    <div class="post--header" style="background-image: url('../img/post-header-img/jekyll-logo-bg.jpg')"></div>
 
-	<!-- <p class="meta">17 February 2016</p> -->
+    <div class="post--content">
+        <h1>Jekyll: First Experience</h1>
+        <p class="post--date">Posted on 17 February 2016</p>
+        <div class="post--body">
+            <p>When planning the development of this website, I knew I was going to include a blog, so my first solution was to use a content management system (CMS); <a href="http://wordpress.org">WordPress</a> in particular, as it is a platform that I am familiar with. Just before starting the development process, I came across the term 'static site generator'. This looked very interesting and so started the Google-fu and it wasn't long before before my plan to use WordPress was scrapped.</p>
 
-	<div class="post--content">
-
-		<h1>Jekyll: First Experience</h1>
-
-		<p class="post--date">Posted on 17 February 2016</p>
-
-		<div class="post--body">
-
-			<p>When planning the development of this website, I knew I was going to include a blog, so my first solution was to use a content management system (CMS); <a href="http://wordpress.org">WordPress</a> in particular, as it is a platform that I am familiar with. Just before starting the development process, I came across the term 'static site generator'. This looked very interesting and so started the Google-fu and it wasn't long before before my plan to use WordPress was scrapped.</p>
 <p>A static site generator is similar to most CMSes in functionality, but while CMSes are dynamic, sites built with static site generators are, well... static. This has a number of benefits, including:</p>
 <ol>
 	<li><strong>Speed</strong> <br>With dynamic sites, the server has to process all of the information, query a database, stitch together multiple files etc. before the site can be served. On large or unoptimized sites, this can take a significant amount of time. With static sites, none of this needs to happen so the serve time can be almost instant.</li>
 	<li><strong>Security</strong> <br>Wherever there's database calls or user input/authentication, there's a potential security hole that can be exploited. Also, considering the widespread usage of platforms such as WordPress, sites built on those platforms are very common target for attacks. Static sites avoid these problems as there's not much to mess around with on static HTML pages.</li>
 	<li><strong>Version Control</strong> <br>Version control systems such as <a href="https://git-scm.com/">Git</a> are almost a necessity when dealing with code, especially when working in groups. While you can use version control with the code <em>behind</em> dynamic sites, any information in databases isn't included and has to be backed up by other means. In static sites, all information is in the code, so this isn't an issue.</li>
 </ol>
+
 <p>As with anything, there are also disadvantages to using static site generators. Perhaps the biggest is that you lose the ability for real-time and personalized data, unless you use Javascript, which isn't always a great solution. Also, most static site generators aren't very 'beginner friendly', as there is no admin UI, meaning any changes have to be made within the code itself.</p>
 
 <h2>Introducing Jekyll</h2>
@@ -124,6 +118,7 @@
 	<li><a href="https://middlemanapp.com/">Middleman</a></li>
 	<li><a href="https://hexo.io/">Hexo</a></li>
 </ul>
+
 <p>There wasn't a big reason for me choosing Jekyll over other static site generators, I just found the documentation very straightforward and liked it's simplicity. It also has a very large user base, meaning if I ran into problems along the way, I could find solutions quickly.</p>
 
 <p class="note">The rest of the post will detail how I used Jekyll to create this site. There are features of Jekyll that I didn't have the need to use. Check the Jekyll <a href="https://jekyllrb.com/docs/home/">docs</a> to see everything it has to offer.</p>
@@ -170,18 +165,22 @@
 <h3>default.html</h3>
 
 <p>This is the page template that is usually used for all pages and includes the <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> but with some differences.</p>
+
 <p>The <code>&lt;body&gt;</code> links your scripts as usual but instead of holding your content, simply contains <code>{{ content }}</code>. This is a liquid tag that is part of the <a href="https://github.com/Shopify/liquid">Liquid</a> templating language, created by <a href="https://www.shopify.co.uk/">Shopify</a>, that is used frequently in Jekyll. I'll go over this in more detail further down.</p>
+
 <p>The <code>&lt;head&gt;</code> is very similar to how it usually is, but also includes certain liquid tags. Because the <em>default.html</em> template can be used for pages that are deeper than the root of the website, linking CSS (and also JS) is slightly different. You can declare certain settings in the <em>_config.yml</em> file, one being <code>url</code>. This sets a base url that can be used to represent the root of your website. For example, if you were to put <code>url: http://example.com</code> in <em>_config.yml</em>, you could link your CSS (using my folder structure above) like this:</p>
 <pre><code class="html">&lt;link rel="stylesheet" href="{{ site.url }}/css/main.css"&gt;
 </code></pre>
+
 <p>Which would be output as the following:</p>
 <pre><code class="html">&lt;link rel="stylesheet" href="http://example.com/css/main.css"&gt;
 </code></pre>
+
 <p>This would always ensure that the path to your CSS is correct.</p>
+
 <p>Another difference to the &lt;head&gt; is the title and description. You declare the title and description using <a href="http://jekyllrb.com/docs/frontmatter/">YAML front matter</a> on each page and access them using liquid tags. I will go over front matter in the next section.</p>
 
 <p>I won't copy my entire <em>default.html</em>, but this is a basic version:</p>
-
 <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -214,7 +213,9 @@ title: "Oli Laban"
 description: "I am a web designer and front-end developer based in Bingley, UK."
 ---
 </code></pre>
+
 <p><code>layout</code> simply refers to the layout that page uses. This doesn't have to be <code>default</code>, it can be any layout within the <em>_layouts</em> directory. It can even point to a layout, that also uses a layout e.g. each individual blog posts point to the <em>post.html</em> layout using <code>layout: post</code>, which itself links to the <em>default.html</em> layout using <code>layout: default</code>.</p>
+
 <p>The <code>title</code> and <code>description</code> are the title and meta description of that page. They are referred to using liquid tags, which you can see in action in the <em>default.html</em> example above.</p>
 
 <p>There are also default variables that are specific to posts, including <code>date</code> and <code>tags</code>. Although I don't use post tags, these can be used similar to <a href="https://codex.wordpress.org/Taxonomies">taxonomies</a> in Wordpress.</p>
@@ -224,6 +225,7 @@ description: "I am a web designer and front-end developer based in Bingley, UK."
 <p>Although <code>title</code> and <code>layout</code> are default in Jekyll, you can include custom variables within front matter. I use this on my post pages to declare the image header, as the image is used in the <em>post.html</em> layout, not the post itself. For example, I have the following on this post:</p>
 <pre><code>image: "/img/jekyll-logo-bg.jpg"
 </code></pre>
+
 <p>I then use the image as a background image on <em>post.html</em> by accessing it via a liquid tag:</p>
 <pre><code class="html">&lt;div class="post--header" style="background-image: url('{{ page.image }}')"&gt;
 ...
@@ -233,6 +235,7 @@ description: "I am a web designer and front-end developer based in Bingley, UK."
 <h4>Page-Specific CSS</h4>
 
 <p>As the same <code>&lt;head&gt;</code> is being used for all pages, you can't include page-specific styles as you usually would. Thankfully, front matter makes this easy.</p>
+
 <p>On my blog post pages, the header images differ from post to post, along with the size and background colour. I can simply include the background styles for each post as front matter as so:</p>
 <pre><code>---
 style: |
@@ -244,6 +247,7 @@ style: |
   }
 ---
 </code></pre>
+
 <p>In the <code>&lt;head&gt;</code> of <em>default.html</em>, using liquid, I can check if the current page has styles declared and include them if so:</p>
 <pre><code class="html">&lt;head&gt;
 	...
@@ -260,6 +264,7 @@ style: |
 <p>If you've developed for Wordpress or used PHP at all, you will almost definitely have seen this:</p>
 <pre><code class="php">&lt;?php include 'file_name.php'; ?&gt;
 </code></pre>
+
 <p>Jekyll provides a very simple way to do the same thing. As you can see in my folder structure, there is a directory named <em>_includes</em> with 7 HTML files within. These files are each section of my home page and I just used liquid tags to include them in <em>index.html</em>, which is a great way to keep code organized. This is the entire contents of my <em>index.html</em> (excluding front matter):</p>
 <pre><code class="html">&lt;div id="page-wrap"&gt;
 
@@ -294,11 +299,14 @@ style: |
 
 <h4>Creating Posts</h4>
 
-<p>Creating a post is as simple as creating a file in the <em>_posts</em> directory. The name of the file must follow a simple formula; <code>YYYY-MM-DD-post-title.ext</code>. This can be either HTML or Markdown. As I have no problem with code, and wanted to be able to add classes and use certain things that aren't available in Markdown, I write my posts using plain HTML.</o>
+<p>Creating a post is as simple as creating a file in the <em>_posts</em> directory. The name of the file must follow a simple formula; <code>YYYY-MM-DD-post-title.ext</code>. This can be either HTML or Markdown. As I have no problem with code, and wanted to be able to add classes and use certain things that aren't available in Markdown, I write my posts using plain HTML.</p>
+
 <p>By default, Jekyll will publish your post at <code>/YYYY/MM/DD/post-title.ext</code>. I personally didn't like this, but Jekyll also makes it easy to change permalinks. I wanted my posts to publish to <code>/post/post-title.ext</code>, so all I had to do was add the following to my <em>_config.yml</em>:</p>
 <pre><code>permalink: /post/:title
 </code></pre>
+
 <p>By doing this, Jekyll automatically creates a <em>post</em> directory in the root of the site, and puts all posts in there.</p>
+
 <p>For the front matter of the post, instead of using <code>default</code>, you use <code>post</code>, which refers to the <em>post.html</em> layout. You also include <code>title</code>, <code>date</code> and any custom variables. The <code>date</code> is in the format <code>YYYY-MM-DD HH:MM:SS</code></p>
 
 <h4>post.html</h4>
@@ -344,12 +352,14 @@ layout: default
 	{% endfor %}
 &lt;/ul&gt;
 </code></pre>
+
 <p>If you had 4 posts titled <em>Foo</em>, <em>Bar</em>, <em>Baz</em> and <em>Quz</em>, the above code would produce the following (<code>limit:3</code> breaks the for loop after 3 iterations and would be the same as <code>(for i=0; i&lt;3; i++)</code> in other languages):</p>
 <ul>
 	<li>Foo</li>
 	<li>Bar</li>
 	<li>Baz</li>
 </ul>
+
 <p>When looping posts, you can access any front matter variables using liquid tags.</p>
 
 <h2>Conclusion</h2>
@@ -359,6 +369,7 @@ layout: default
 <hr>
 
 <p><strong>Edit:</strong></p>
+
 <p>Since writing this post, using <code>url</code> in <em>_config.yml</em> and linking assets with <code>{{ site.url }}</code> has stopped working. I'm not sure whether this is a bug with Jekyll, but I had to use <code>if</code> statements to link assets with relative paths. Although it's not as nice to look at, it works fine. This is how I now link my CSS and JS (as my posts page is an <em>index.html</em> within a posts directory, I had to give the page a <code>date</code> variable in it's front matter):</p>
 <pre><code>&lt;!-- home page --&gt;
 {% if page.title == 'Oli Laban' %}
@@ -371,48 +382,53 @@ layout: default
 {% endif %}
 </code></pre>
 
+        </div>
+    </div>
 
-		</div>
+    <div class="post--share">
 
-	</div>
+        <p>Share this post:</p>
 
-	<div class="post--share">
-		<p>Share this post:</p>
-		<ul>
-			<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://bluefont.design/post/jekyll-first-experience" title="Share on Facebook" target="_blank">
-				<img src="../img/share-fb.svg">
-			</a></li>
-			<li><a href="https://twitter.com/intent/tweet?source=&text=Jekyll: First Experience&url=http://bluefont.design/post/jekyll-first-experience&via=oli_laban&related=oli_laban" title="Tweet" target="_blank">
-				<img src="../img/share-twitter.svg">
-			</a></li>
-			<li><a href="https://plus.google.com/share?url=http://bluefont.design/post/jekyll-first-experience" title="Share on Google+" target="_blank">
-				<img src="../img/share-gplus.svg">
-			</a></li>
-			<li><a href="http://www.reddit.com/submit?url=http://bluefont.design/post/jekyll-first-experience&title=Jekyll: First Experience" title="Share on Reddit" target="_blank">
-				<img src="../img/share-reddit.svg">
-			</a></li>
-			<li><a href="mailto:?subject=Jekyll: First Experience&body=http://bluefont.design/post/jekyll-first-experience" title="Email" target="_blank">
-				<img src="../img/share-email.svg">
-			</a></li>
-		</ul>
-	</div>
+        <ul>
+            <li>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=http://bluefont.design/post/jekyll-first-experience" title="Share on Facebook" target="_blank">
+                    <img src="../img/share-fb.svg">
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/intent/tweet?source=&text=Jekyll: First Experience&url=http://bluefont.design/post/jekyll-first-experience&via=oli_laban&related=oli_laban" title="Tweet" target="_blank">
+                    <img src="../img/share-twitter.svg">
+                </a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/share?url=http://bluefont.design/post/jekyll-first-experience" title="Share on Google+" target="_blank">
+                    <img src="../img/share-gplus.svg">
+                </a>
+            </li>
+            <li>
+                <a href="http://www.reddit.com/submit?url=http://bluefont.design/post/jekyll-first-experience&title=Jekyll: First Experience" title="Share on Reddit" target="_blank">
+                    <img src="../img/share-reddit.svg">
+                </a>
+            </li>
+            <li>
+                <a href="mailto:?subject=Jekyll: First Experience&body=http://bluefont.design/post/jekyll-first-experience" title="Email" target="_blank">
+                    <img src="../img/share-email.svg">
+                </a>
+            </li>
+        </ul>
+    </div>
 
-	<div class="post--recent-posts">
-		<p>Other Posts:</p>
-		<ul>
-			
-				
-			
-				
-					<li><a href="/post/firefox-doesnt-like-the-padding-bottom-hack-with-flexbox">Firefox Doesn't Like the padding-bottom Hack with Flexbox</a></li>
-				
-			
-				
-					<li><a href="/post/hello-world">Hello World!</a></li>
-				
-			
-		</ul>
-	</div>
+    <div class="post--recent-posts">
+        <p>Other Posts:</p>
+
+        <ul>
+               
+            <li><a href="/post/firefox-doesnt-like-the-padding-bottom-hack-with-flexbox">Firefox Doesn't Like the padding-bottom Hack with Flexbox</a></li>
+              
+            <li><a href="/post/hello-world">Hello World!</a></li>
+             
+        </ul>
+    </div>
 </div>
 
     

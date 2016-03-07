@@ -4,63 +4,64 @@ layout: default
 
 <div class="post--wrapper">
 
-	<nav class="post--menu post--menu--down">
-		<div class="post--menu--contents">
-			<a href="../"><img src="../img/logo.svg" alt="Logo"></a>
-			<a href="../">Home</a>
-			<a href="../posts">Posts</a>
-		</div>
-	</nav>
+    <nav class="post--menu post--menu--down">
+        <div class="post--menu--contents">
+            <a href="../"><img src="../img/logo.svg" alt="Logo"></a>
+            <a href="../">Home</a>
+            <a href="../posts">Posts</a>
+        </div>
+    </nav>
 
-	<div class="post--header" style="background-image: url('../img/post-header-img/{{ page.image }}')">
-		<!-- <a href="" class="button">Back to Posts</a> -->
-	</div>
+    <div class="post--header" style="background-image: url('../img/post-header-img/{{ page.image }}')"></div>
 
-	<!-- <p class="meta">{{ page.date | date_to_long_string }}</p> -->
+    <div class="post--content">
+        <h1>{{ page.title }}</h1>
+        <p class="post--date">Posted on {{ page.date | date_to_long_string }}</p>
+        <div class="post--body">
+            {{ content }}
+        </div>
+    </div>
 
-	<div class="post--content">
+    <div class="post--share">
 
-		<h1>{{ page.title }}</h1>
+        <p>Share this post:</p>
 
-		<p class="post--date">Posted on {{ page.date | date_to_long_string }}</p>
+        <ul>
+            <li>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" title="Share on Facebook" target="_blank">
+                    <img src="../img/share-fb.svg">
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/intent/tweet?source=&text={{ page.title }}&url={{ site.url }}{{ page.url }}&via={{ site.twitter_username }}&related={{ site.twitter_username }}" title="Tweet" target="_blank">
+                    <img src="../img/share-twitter.svg">
+                </a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" title="Share on Google+" target="_blank">
+                    <img src="../img/share-gplus.svg">
+                </a>
+            </li>
+            <li>
+                <a href="http://www.reddit.com/submit?url={{ site.url }}{{ page.url }}&title={{ page.title }}" title="Share on Reddit" target="_blank">
+                    <img src="../img/share-reddit.svg">
+                </a>
+            </li>
+            <li>
+                <a href="mailto:?subject={{ page.title }}&body={{ site.url }}{{ page.url }}" title="Email" target="_blank">
+                    <img src="../img/share-email.svg">
+                </a>
+            </li>
+        </ul>
+    </div>
 
-		<div class="post--body">
+    <div class="post--recent-posts">
+        <p>Other Posts:</p>
 
-			{{ content }}
-
-		</div>
-
-	</div>
-
-	<div class="post--share">
-		<p>Share this post:</p>
-		<ul>
-			<li><a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" title="Share on Facebook" target="_blank">
-				<img src="../img/share-fb.svg">
-			</a></li>
-			<li><a href="https://twitter.com/intent/tweet?source=&text={{ page.title }}&url={{ site.url }}{{ page.url }}&via={{ site.twitter_username }}&related={{ site.twitter_username }}" title="Tweet" target="_blank">
-				<img src="../img/share-twitter.svg">
-			</a></li>
-			<li><a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" title="Share on Google+" target="_blank">
-				<img src="../img/share-gplus.svg">
-			</a></li>
-			<li><a href="http://www.reddit.com/submit?url={{ site.url }}{{ page.url }}&title={{ page.title }}" title="Share on Reddit" target="_blank">
-				<img src="../img/share-reddit.svg">
-			</a></li>
-			<li><a href="mailto:?subject={{ page.title }}&body={{ site.url }}{{ page.url }}" title="Email" target="_blank">
-				<img src="../img/share-email.svg">
-			</a></li>
-		</ul>
-	</div>
-
-	<div class="post--recent-posts">
-		<p>Other Posts:</p>
-		<ul>
-			{% for post in site.posts limit:4 %}
-				{% if post.title != page.title %}
-					<li><a href="{{ post.url }}">{{ post.title }}</a></li>
-				{% endif %}
-			{% endfor %}
-		</ul>
-	</div>
+        <ul>
+            {% for post in site.posts limit:4 %} {% if post.title != page.title %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+            {% endif %} {% endfor %}
+        </ul>
+    </div>
 </div>
